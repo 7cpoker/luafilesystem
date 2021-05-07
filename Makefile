@@ -3,7 +3,7 @@
 T= lfs
 
 CONFIG= ./config
-
+LIBDIR= ../../qcclib/
 include $(CONFIG)
 
 SRCS= src/$T.c
@@ -18,8 +18,8 @@ test: lib
 	LUA_CPATH=./src/?.so lua tests/test.lua
 
 install:
-	mkdir -p $(DESTDIR)$(LUA_LIBDIR)
-	cp src/lfs.so $(DESTDIR)$(LUA_LIBDIR)
+	mkdir -p $(DESTDIR)$(LIBDIR)
+	cp src/lfs.so $(DESTDIR)$(LIBDIR)
 
 clean:
-	rm -f src/lfs.so $(OBJS)
+	rm -f $(LIBDIR)/lfs.so $(OBJS)
